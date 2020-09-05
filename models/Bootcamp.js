@@ -6,13 +6,13 @@ const BootcampSchema = new mongoose.Schema({
     required: [true, 'Please add a name'],
     unique: true,
     trim: true,
-    maxlength: [50, 'Name can not be more than 50 characters'],
+    maxlength: [50, 'Name can not be more than 50 characters']
   },
   slug: String,
   description: {
     type: String,
     required: [true, 'Please add a description'],
-    maxlength: [500, 'Description can not be more than 50 characters'],
+    maxlength: [500, 'Description can not be more than 500 characters']
   },
   website: {
     type: String,
@@ -23,7 +23,7 @@ const BootcampSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    maxlength: [20, 'Phone number can not be more than 20 characters'],
+    maxlength: [20, 'Phone number can not be longer than 20 characters']
   },
   email: {
     type: String,
@@ -40,12 +40,10 @@ const BootcampSchema = new mongoose.Schema({
     // GeoJSON Point
     type: {
       type: String,
-      enum: ['Point'],
-      required: true
+      enum: ['Point']
     },
     coordinates: {
       type: [Number],
-      required: true,
       index: '2dsphere'
     },
     formattedAddress: String,
@@ -53,10 +51,10 @@ const BootcampSchema = new mongoose.Schema({
     city: String,
     state: String,
     zipcode: String,
-    country: String,
+    country: String
   },
   careers: {
-    // Aray of strings
+    // Array of strings
     type: [String],
     required: true,
     enum: [
@@ -65,20 +63,20 @@ const BootcampSchema = new mongoose.Schema({
       'UI/UX',
       'Data Science',
       'Business',
-      'Others'
+      'Other'
     ]
   },
-  avarageRating: {
+  averageRating: {
     type: Number,
     min: [1, 'Rating must be at least 1'],
-    max: [2, 'Rating must be can not be more than 10'],
+    max: [10, 'Rating must can not be more than 10']
   },
-  avarageCost: Number,
+  averageCost: Number,
   photo: {
     type: String,
-    default: 'no-photo.jpg',
+    default: 'no-photo.jpg'
   },
-  housting: {
+  housing: {
     type: Boolean,
     default: false
   },
@@ -97,7 +95,7 @@ const BootcampSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
 });
 
 module.exports = mongoose.model('Bootcamp', BootcampSchema);
