@@ -8,7 +8,6 @@ const Bootcamp = require('../models/Bootcamp');
 // @route  GET /api/v1/bootcamps
 // @access  Public
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
-
   res.status(200).json(res.advancedResults);
 });
 
@@ -32,8 +31,15 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 // @route  POST /api/v1/bootcamps
 // @access  Private
 exports.createBootcamp = asyncHandler(async (req, res, next) => {
+  // Add user to req.body
+  req.body.user = req.user.id;
+  
   const bootcamp = await Bootcamp.create(req.body);
-  res.status(201).json({ success: true, data: bootcamp });
+
+  res.status(201).json({ 
+    success: true, 
+    data: bootcamp 
+  });
 });
 
 // @desc   Update bootcamp
@@ -135,7 +141,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
   file.name = `photo_${bootcamp._id}${path.parse(file.name).ext}`;
 
   file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
-    if(err) {
+    if (err) {
       console.error(err);
       return next(new ErrorResponse(`Problem withfile upload`, 500));
     }
@@ -144,7 +150,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      data: file.name
+      data: file.name,
     });
   });
 });
