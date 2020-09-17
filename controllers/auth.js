@@ -4,8 +4,8 @@ const asyncHandler = require('../middleware/async');
 const sendEmail = require('../utils/sendEmail');
 const User = require('../models/User');
 
-// @desc   Register user
-// @route  POST /api/v1/auth/register
+// @desc    Register user
+// @route   POST /api/v1/auth/register
 // @access  Public
 exports.register = asyncHandler(async (req, res, next) => {
   const { name, email, password, role } = req.body;
@@ -46,8 +46,8 @@ const sendTokenResponse = (user, statusCode, res) => {
   });
 };
 
-// @desc   Login user
-// @route  POST /api/v1/auth/login
+// @desc    Login user
+// @route   POST /api/v1/auth/login
 // @access  Public
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
@@ -74,8 +74,8 @@ exports.login = asyncHandler(async (req, res, next) => {
   sendTokenResponse(user, 200, res);
 });
 
-// @desc   Get current logged in user
-// @route  POST /api/v1/auth/me
+// @desc    Get current logged in user
+// @route   POST /api/v1/auth/me
 // @access  Private
 exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
@@ -86,8 +86,8 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   })
 });
 
-// @desc   Update user details
-// @route  PUT /api/v1/auth/updatedetails
+// @desc    Update user details
+// @route   PUT /api/v1/auth/updatedetails
 // @access  Private
 exports.updateDetails = asyncHandler(async (req, res, next) => {
   const fieldsToUpdate = {
@@ -106,8 +106,8 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
   })
 });
 
-// @desc   Update password
-// @route  PUT /api/v1/auth/updatepassword
+// @desc    Update password
+// @route   PUT /api/v1/auth/updatepassword
 // @access  Private
 exports.updatePassword = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id).select('+password');
@@ -124,8 +124,8 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 });
 
 
-// @desc  Forgot password
-// @route  POST /api/v1/auth/forgotpassword
+// @desc    Forgot password
+// @route   POST /api/v1/auth/forgotpassword
 // @access  Public
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
@@ -169,8 +169,8 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   })
 });
 
-// @desc   Reset Password
-// @route  PUT /api/v1/auth/resetpassword/:resettoken
+// @desc    Reset Password
+// @route   PUT /api/v1/auth/resetpassword/:resettoken
 // @access  Public
 exports.resetPassword = asyncHandler(async (req, res, next) => {
   // Get hashed token
