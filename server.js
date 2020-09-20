@@ -14,6 +14,7 @@ const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
+
 // Load env vars
 dotenv.config({ path: './config/config.env' });
 
