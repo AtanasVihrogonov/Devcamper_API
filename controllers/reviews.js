@@ -2,7 +2,7 @@ const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const Review = require('../models/Review');
 const Bootcamp = require('../models/Bootcamp');
-const { request } = require('express');
+// const { request } = require('express');
 
 // @desc    Get reviews
 // @route   GET /api/v1/reviews
