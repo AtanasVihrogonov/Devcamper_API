@@ -4,7 +4,7 @@
   "description": "Devcamper backend API",
   "main": "server.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
+    "start": "set NODE_ENV=production node server",
     "dev": "nodemon server"
   },
   "keywords": [],
