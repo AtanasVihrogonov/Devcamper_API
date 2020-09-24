@@ -19,6 +19,8 @@ npm install
 
 # Run in prod mode -> npm run start
 ```
+## Demo
+Extensive documentation with examples [here](https://documenter.getpostman.com/view/12610761/TVKBYdic#5e27aa90-ee55-4d75-8fa2-ae5860b23d70)
 
 - Version: 1.0.0
 
