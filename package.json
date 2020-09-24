@@ -4,7 +4,7 @@
   "description": "Devcamper backend API",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production cmd /c echo %NODE_ENV%",
+    "start": "set NODE_ENV=production&&npm run build",
     "dev": "nodemon server"
   },
   "keywords": [],
