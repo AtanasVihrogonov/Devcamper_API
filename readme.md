@@ -31,7 +31,7 @@ Extensive documentation with examples [here](https://documenter.getpostman.com/v
 * MongoDB Atlas & Compass
 
 ## Inspiration
->This is influensed by Brad Travesy Udemy cource "Masterclass Node.js and Express"
+>This is influensed by Brad Traversy Udemy cource "Masterclass Node.js and Express"
 
 ## Contact
 >Created by [A.Vihrogonov] [Vihrogonov@protonmail.com] - feel free to contact me!
